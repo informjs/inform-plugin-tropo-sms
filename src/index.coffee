@@ -10,7 +10,7 @@ class TropoSMSPlugin extends Plugin
 
     @backend = new TropoWebAPI
 
-  receive: (message) -> console.log messagu
+  receive: (message) -> console.log message
 
 module.exports.Plugin = TropoSMSPlugin
 
