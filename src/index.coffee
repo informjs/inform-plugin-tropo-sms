@@ -8,8 +8,6 @@ class TropoSMSPlugin extends Plugin
     if !@options.tropo_token?
       throw new AuthenticationError 'No tropo_token provided.'
 
-    @backend = new TropoWebAPI
-
   receive: (message) -> console.log message
 
 module.exports.Plugin = TropoSMSPlugin

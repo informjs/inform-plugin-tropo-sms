@@ -23,7 +23,3 @@ describe 'Plugin', ->
 
       expect(pluginFactory).to.throw Error
 
-    it 'should create a Tropo WebAPI object when a token is provided', sinon.test ->
-      plugin = new Plugin exampleData.options
-
-      expect(plugin.backend).to.be.instanceof TropoWebAPI
