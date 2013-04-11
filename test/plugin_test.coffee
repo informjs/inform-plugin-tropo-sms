@@ -1,4 +1,3 @@
-{TropoWebAPI} = require 'tropo-webapi'
 {Plugin} = require '../src'
 
 sinon = require 'sinon'
@@ -6,7 +5,7 @@ sinon = require 'sinon'
 
 exampleData =
   options:
-    tropo_token: 'example'
+    token: 'example'
 
 describe 'Plugin', ->
   it 'should define #receive', ->
