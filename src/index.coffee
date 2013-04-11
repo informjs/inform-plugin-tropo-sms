@@ -13,11 +13,11 @@ class TropoSMSPlugin extends Plugin
     if !@options.destination?
       throw new OptionsError 'No destination provided.'
 
-  buildURL: (message) ->
+  buildURL: (message) =>
     return 'http://api.tropo.com/1.0/sessions?action=create&token=' +
            "#{ @options.token }&msg=#{ message }&number=#{ @options.destination }"
 
-  receive: (message) ->
+  receive: (message) =>
     parsedURL = url.parse @buildURL message
 
     client = http.createClient 80, parsedURL.host
