@@ -1,6 +1,5 @@
-Example Plugin
-==============
+Tropo SMS Plugin
+================
 
-This is an example plugin which should be used as a base for creating new
-informjs plugins. It simply echos notifications to stdout.
+A plugin for sending SMS messages over the Tropo web service.
 
