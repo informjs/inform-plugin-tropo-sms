@@ -1,3 +1,6 @@
+http = require 'http'
+url = require 'url'
+
 {Plugin} = require '../src'
 
 sinon = require 'sinon'
@@ -35,4 +38,25 @@ describe 'Plugin', ->
       result = plugin.buildURL 'message'
 
       expect(result).to.equal 'http://api.tropo.com/1.0/sessions?action=create&token=example&msg=message&number=8018018080'
+
+  describe '#receive', ->
+    it 'should send a properly formatted HTTP request to tropo', sinon.test ->
+      requestEnd = @spy()
+      request = @stub().returns { end: requestEnd }
+      createClient = @stub(http, 'createClient').returns { request: request }
+
+      plugin = new Plugin exampleData.options
+
+      plugin.receive 'message'
+      parsedURL = url.parse plugin.buildURL 'message'
+
+      expect(createClient.calledOnce).to.be.true
+      expect(createClient.calledWith 80, parsedURL.host).to.be.true
+
+      expect(request.calledOnce).to.be.true
+      expect(request.calledWith 'GET', parsedURL.path, {host: parsedURL.host}).to.be.true
+      expect(request.calledAfter createClient).to.be.true
+
+      expect(requestEnd.calledOnce).to.be.true
+      expect(requestEnd.calledAfter request).to.be.true
 
