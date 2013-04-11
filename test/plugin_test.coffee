@@ -6,6 +6,7 @@ sinon = require 'sinon'
 exampleData =
   options:
     token: 'example'
+    destination: '8018018080'
 
 describe 'Plugin', ->
   it 'should define #receive', ->
@@ -18,7 +19,12 @@ describe 'Plugin', ->
       expect(plugin.options).to.deep.equal exampleData.options
 
     it 'should throw an error if authentication settings are not provided', sinon.test ->
-      pluginFactory = -> new Plugin {}
+      pluginFactory = -> new Plugin { destination: '8018018080' }
+
+      expect(pluginFactory).to.throw Error
+
+    it 'should throw an error if SMS destination setting is not provided', sinon.test ->
+      pluginFactory = -> new Plugin { token: 'xxx' }
 
       expect(pluginFactory).to.throw Error
 
