@@ -28,3 +28,11 @@ describe 'Plugin', ->
 
       expect(pluginFactory).to.throw Error
 
+  describe '#buildURL', ->
+    it 'should return a valid Tropo API v1.0 URL', sinon.test ->
+      plugin = new Plugin exampleData.options
+
+      result = plugin.buildURL 'message'
+
+      expect(result).to.equal 'http://api.tropo.com/1.0/sessions?action=create&token=example&msg=message&number=8018018080'
+

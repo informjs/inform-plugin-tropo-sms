@@ -10,6 +10,10 @@ class TropoSMSPlugin extends Plugin
     if !@options.destination?
       throw new OptionsError 'No destination provided.'
 
+  buildURL: (message) ->
+    return 'http://api.tropo.com/1.0/sessions?action=create&token=' +
+           "#{ @options.token }&msg=#{ message }&number=#{ @options.destination }"
+
   receive: (message) -> console.log message
 
 module.exports.Plugin = TropoSMSPlugin
