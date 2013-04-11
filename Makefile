@@ -1,10 +1,10 @@
 CC=coffee
-OUT=lib/tropo-sms
+OUT=lib/inform-plugin-tropo-sms
 IN=src/
 
-all: lib/tropo-sms
+all: lib/inform-plugin-tropo-sms
 	${CC} -o ${OUT} -c ${IN}
 
-lib/tropo-sms:
+lib/inform-plugin-tropo-sms:
 	mkdir -p "${OUT}"
 
