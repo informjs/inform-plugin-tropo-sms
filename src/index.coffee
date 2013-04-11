@@ -1,9 +1,13 @@
 {Plugin} = require 'inform-shared'
 
-console.dir Plugin
+class AuthenticationError extends Error
 
-class ExamplePlugin extends Plugin
-  receive: (message) -> console.log message
+class TropoSMSPlugin extends Plugin
+  constructor: (@options) ->
+    if !@options.tropo_token?
+      throw new AuthenticationError 'No tropo_token provided.'
 
-module.exports.Plugin = ExamplePlugin
+  receive: (message) -> console.log messagu
+
+module.exports.Plugin = TropoSMSPlugin
 
