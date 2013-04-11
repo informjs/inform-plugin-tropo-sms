@@ -15,7 +15,7 @@ class TropoSMSPlugin extends Plugin
 
   buildURL: (message) =>
     return 'http://api.tropo.com/1.0/sessions?action=create&token=' +
-           "#{ @options.token }&msg=#{ message }&number=#{ @options.destination }"
+           "#{ @options.token }&msg=#{ encodeURI message }&number=#{ @options.destination }"
 
   receive: (message) =>
     parsedURL = url.parse @buildURL message
