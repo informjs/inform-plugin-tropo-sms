@@ -1,5 +1,5 @@
 {
-  "name": "tropo-sms",
+  "name": "inform-plugin-tropo-sms",
   "version": "0.0.0",
   "description": "Leverage the Inform daemon to send SMS messages over the Tropo API.",
   "main": "lib/tropo-sms/index.js",
