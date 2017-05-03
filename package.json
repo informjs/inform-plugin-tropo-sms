@@ -16,13 +16,13 @@
   "author": "Brandon R. Stoner <monokrome@mnokro.me>",
   "license": "MIT",
   "dependencies": {
-    "inform-shared": "0.1.1"
+    "inform-shared": "^0.1.1"
   },
   "devDependencies": {
-    "coffee-script": "1.6.2",
-    "mocha": "1.8.2",
-    "chai": "1.5.0",
-    "sinon": "1.6.0",
-    "mockery": "1.4.0"
+    "chai": "^1.5.0",
+    "coffee-script": "^1.6.2",
+    "mocha": "^1.8.2",
+    "mockery": "^1.4.0",
+    "sinon": "^1.6.0"
   }
 }
